@@ -29,7 +29,7 @@ export const ShowCaseContainer = styled.div`
 export const ShowCaseArea = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
@@ -110,7 +110,7 @@ export const ShowCaseTitle = styled.div`
   padding-bottom: 2.5rem;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
   }
 
   small {

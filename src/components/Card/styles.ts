@@ -19,9 +19,22 @@ export const CardContainer = styled.div`
     }
   }
 
-  button {
-    width: 100%;
-    margin-top: 1.5rem;
+  >a {
+    margin-top: 1rem;
+    text-align: center;
+    background: ${({ theme }) => theme.colors.goldenColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
+    border: 2px solid ${({ theme }) => theme.colors.goldenColor};
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: .25rem;
+    padding: .75rem;
+    transition: .4s;
+
+    &:hover {
+      background: transparent;
+      color: ${({ theme }) => theme.colors.goldenColor};
+    }
   }
 `;
 

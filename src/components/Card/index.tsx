@@ -39,7 +39,7 @@ export const Card = ({ movie }: Props) => {
         {Number(movie.vote_average).toFixed(1)}
       </span>
 
-      <button>Detalhes</button>
+      <Link href={`/filme/${movie.id}`}>Mais detalhes</Link>
     </S.CardContainer>
   );
 };
