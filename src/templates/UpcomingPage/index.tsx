@@ -6,7 +6,6 @@ import { getMovies } from '../../libs/get-movies';
 
 interface Props {
   currentPage?: number;
-  // setCurrentPage?: React.Dispatch<React.SetStateAction<number>>;
   nextHref: string;
   prevHref: string;
 }
@@ -28,7 +27,6 @@ export const UpcomingPage = async (props: Props) => {
             title="Em breve"
             movies={upcomingMovies}
             currentPage={props.currentPage}
-            // setCurrentPage={props.setCurrentPage}
             nextHref={props.nextHref}
             prevHref={props.prevHref}
           />
