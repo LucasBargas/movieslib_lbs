@@ -42,7 +42,10 @@ export const ShowCase = (props: Props): JSX.Element => {
       {!!props.queryValue && moviesResults.length > 0 && (
         <S.ShowCaseTitle>
           {<h1>{handleTitleShowCase(props.queryValue)}</h1>}{' '}
-          <small>{props.movies.total_results} resultados</small>
+          <small>
+            {props.movies.total_results}{' '}
+            {moviesResults.length === 1 ? 'resultado' : 'resultados'}
+          </small>
         </S.ShowCaseTitle>
       )}
 

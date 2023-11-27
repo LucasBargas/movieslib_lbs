@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import Theme from '../styles/Theme';
 import Globals from '../styles/Globals';
 import { Header } from '../layouts/Header';
+import { AppWrapper } from '@/layouts/AppWrapper';
 
 export default function RootLayout({
   children,
@@ -15,9 +16,11 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <StyledComponentsRegistry>
           <ThemeProvider theme={Theme}>
-            <Header />
-            <main>{children}</main>
-            <Globals />
+            <AppWrapper>
+              <Header />
+              <main>{children}</main>
+              <Globals />
+            </AppWrapper>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

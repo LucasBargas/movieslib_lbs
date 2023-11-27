@@ -109,8 +109,13 @@ export const ShowCaseTitle = styled.div`
   gap: .125rem;
   padding-bottom: 2.5rem;
 
+  h1 {
+    font-size: 1.5rem;
+  }
+
   small {
     display: block;
     margin-top: .5rem;
+    font-size: .9375rem;
   }
 `;
