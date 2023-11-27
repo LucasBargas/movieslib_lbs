@@ -9,4 +9,5 @@ export interface IMovies {
     genre_ids: number[];
   }[];
   total_pages?: number;
+  total_results?: number;
 }

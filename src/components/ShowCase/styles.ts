@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const ShowcCaseContainer = styled.div`
-  h1 {
-    margin-bottom: 2.5rem;
-  }
-
   >button {
     margin-top: 2rem;
     position: relative;
@@ -104,5 +100,21 @@ export const ShowcasePaginationController = styled.div`
         fill: ${({ theme }) => theme.colors.goldenColor};
       }
     }
+  }
+`;
+
+export const ShowCaseTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: .125rem;
+  padding-bottom: 2.5rem;
+
+  h1 {
+    text-transform: capitalize;
+  }
+
+  small {
+    display: block;
+    margin-top: .5rem;
   }
 `;

@@ -14,7 +14,6 @@ interface Props {
   sliced?: boolean;
   queryValue?: string;
   currentPage?: number;
-  // setCurrentPage?: React.Dispatch<React.SetStateAction<number>>;
   nextHref?: string;
   prevHref?: string;
 }
@@ -25,14 +24,26 @@ export const ShowCase = (props: Props): JSX.Element => {
 
   return (
     <S.ShowcCaseContainer>
-      {!!props.title && <h1>{props.title}</h1>}
+      {!!props.title && (
+        <S.ShowCaseTitle>
+          <h1>{props.title}</h1>
+          {!props.sliced && (
+            <small>{props.movies.total_results} resultados</small>
+          )}
+        </S.ShowCaseTitle>
+      )}
 
       {!!props.queryValue && moviesResults.length > 0 && (
-        <h1>Resultados para: {props.queryValue}</h1>
+        <S.ShowCaseTitle>
+          {<h1>{props.queryValue}</h1>}{' '}
+          <small>{props.movies.total_results} resultados</small>
+        </S.ShowCaseTitle>
       )}
 
       {!!props.queryValue && moviesResults.length === 0 && (
-        <h1>Nenhum resultado encontrado para: {props.queryValue}</h1>
+        <S.ShowCaseTitle>
+          <h1>Nenhum resultado encontrado para: {props.queryValue}</h1>
+        </S.ShowCaseTitle>
       )}
 
       <S.ShowcCaseArea>
