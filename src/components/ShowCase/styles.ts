@@ -109,10 +109,6 @@ export const ShowCaseTitle = styled.div`
   gap: .125rem;
   padding-bottom: 2.5rem;
 
-  h1 {
-    text-transform: capitalize;
-  }
-
   small {
     display: block;
     margin-top: .5rem;
