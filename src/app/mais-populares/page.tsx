@@ -1,16 +1,20 @@
 'use client';
-import { MorePopularPage } from '../../templates/MorePopularPage';
+import { DefaultPage } from '../../templates/DefaultPage';
 import { useSearchParams } from 'next/navigation';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const MorePopular = (): JSX.Element => {
   const queryValue = Number(useSearchParams().get('pagina'));
   let currentPage = queryValue;
 
   return (
-    <MorePopularPage
+    <DefaultPage
       currentPage={currentPage}
       nextHref={`/mais-populares?pagina=${currentPage + 1}`}
       prevHref={`/mais-populares?pagina=${currentPage - 1}`}
+      api={`${apiUrl}/popular?language=pt-BR&page=${currentPage}}`}
+      title="Mais populares"
     />
   );
 };

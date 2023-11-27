@@ -1,16 +1,20 @@
 'use client';
-import { UpcomingPage } from '../../templates/UpcomingPage';
+import { DefaultPage } from '../../templates/DefaultPage';
 import { useSearchParams } from 'next/navigation';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Upcoming = (): JSX.Element => {
   const queryValue = Number(useSearchParams().get('pagina'));
   let currentPage = queryValue;
 
   return (
-    <UpcomingPage
+    <DefaultPage
       currentPage={currentPage}
       nextHref={`/em-breve?pagina=${currentPage + 1}`}
       prevHref={`/em-breve?pagina=${currentPage - 1}`}
+      api={`${apiUrl}/upcoming?language=pt-BR&page=${currentPage}}`}
+      title="Em breve"
     />
   );
 };

@@ -1,18 +1,22 @@
 'use client';
-import { TopRatedPage } from '../../templates/TopRatedPage';
+import { DefaultPage } from '../../templates/DefaultPage';
 import { useSearchParams } from 'next/navigation';
 
-const TopRated = (): JSX.Element => {
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+const ToRated = (): JSX.Element => {
   const queryValue = Number(useSearchParams().get('pagina'));
   let currentPage = queryValue;
 
   return (
-    <TopRatedPage
+    <DefaultPage
       currentPage={currentPage}
       nextHref={`/melhores-avaliados?pagina=${currentPage + 1}`}
       prevHref={`/melhores-avaliados?pagina=${currentPage - 1}`}
+      api={`${apiUrl}/top_rated?language=pt-BR&page=${currentPage}}`}
+      title="Melhore avaliados"
     />
   );
 };
 
-export default TopRated;
+export default ToRated;

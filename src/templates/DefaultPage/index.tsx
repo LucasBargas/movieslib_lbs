@@ -5,27 +5,27 @@ import { IMovies } from '../../interfaces/IMovies';
 import { getMovies } from '../../libs/get-movies';
 
 interface Props {
+  title?: string;
+  queryValue?: string;
   currentPage?: number;
   nextHref: string;
   prevHref: string;
+  api: string;
 }
 
 const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export const MorePopularPage = async (props: Props) => {
-  const popularMovies: IMovies = await getMovies(
-    apiToken!,
-    `${apiUrl}/popular?language=pt-BR&page=${props.currentPage}}`,
-  );
+export const DefaultPage = async (props: Props) => {
+  const popularMovies: IMovies = await getMovies(apiToken!, props.api);
 
   return (
     <S.PageContainer>
       <AppContainer>
         <S.PageArea>
           <ShowCase
-            title="Mais populares"
+            title={props.title}
             movies={popularMovies}
+            queryValue={props.queryValue!}
             currentPage={props.currentPage}
             nextHref={props.nextHref}
             prevHref={props.prevHref}
