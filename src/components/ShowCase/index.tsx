@@ -29,7 +29,7 @@ export const ShowCase = (props: Props): JSX.Element => {
   };
 
   return (
-    <S.ShowcCaseContainer>
+    <S.ShowCaseContainer>
       {!!props.title && (
         <S.ShowCaseTitle>
           <h1>{handleTitleShowCase(props.title)}</h1>
@@ -58,7 +58,7 @@ export const ShowCase = (props: Props): JSX.Element => {
         </S.ShowCaseTitle>
       )}
 
-      <S.ShowcCaseArea>
+      <S.ShowCaseArea>
         {!props.sliced &&
           moviesResults &&
           moviesResults.map((movie) => <Card key={movie.id} movie={movie} />)}
@@ -68,14 +68,14 @@ export const ShowCase = (props: Props): JSX.Element => {
           moviesResults
             .slice(0, 10)
             .map((movie) => <Card key={movie.id} movie={movie} />)}
-      </S.ShowcCaseArea>
+      </S.ShowCaseArea>
 
       {!!props.sliced && props.redirect && (
         <button onClick={() => push(props.redirect!)}>Ver mais</button>
       )}
 
       {!props.sliced && moviesResults.length > 0 && (
-        <S.ShowcasePaginationController>
+        <S.ShowCasePaginationController>
           {props.currentPage! > 1 && (
             <Link href={props.prevHref!}>
               <i>
@@ -98,8 +98,8 @@ export const ShowCase = (props: Props): JSX.Element => {
               </i>{' '}
             </Link>
           )}
-        </S.ShowcasePaginationController>
+        </S.ShowCasePaginationController>
       )}
-    </S.ShowcCaseContainer>
+    </S.ShowCaseContainer>
   );
 };

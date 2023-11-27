@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ShowcCaseContainer = styled.div`
+export const ShowCaseContainer = styled.div`
   >button {
     margin-top: 2rem;
     position: relative;
@@ -26,7 +26,7 @@ export const ShowcCaseContainer = styled.div`
   }
 `;
 
-export const ShowcCaseArea = styled.div`
+export const ShowCaseArea = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -44,7 +44,7 @@ export const ShowcCaseArea = styled.div`
   }
 `;
 
-export const ShowcasePaginationController = styled.div`
+export const ShowCasePaginationController = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 3rem;
