@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { IMovies } from '../interfaces/IMovies';
 import { HomePage } from '../templates/HomePage';
-import { getMovies } from '../libs/get-movies';
+import { getDatas } from '../libs/get-datas';
 
 export const metadata: Metadata = {
   title: 'MoviesLibLBS',
@@ -11,19 +11,19 @@ const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Home = async (): Promise<JSX.Element> => {
-  const popularMovies: IMovies = await getMovies(
+  const popularMovies: IMovies = await getDatas(
     apiToken!,
-    `${apiUrl}/popular?language=pt-BR&page=2`,
+    `${apiUrl}/movie/popular?language=pt-BR&page=2`,
   );
 
-  const topRatedMovies: IMovies = await getMovies(
+  const topRatedMovies: IMovies = await getDatas(
     apiToken!,
-    `${apiUrl}/popular?language=pt-BR&page=2`,
+    `${apiUrl}/movie/popular?language=pt-BR&page=2`,
   );
 
-  const upcomingMovies: IMovies = await getMovies(
+  const upcomingMovies: IMovies = await getDatas(
     apiToken!,
-    `${apiUrl}/upcoming?language=pt-BR&page=1`,
+    `${apiUrl}/movie/upcoming?language=pt-BR&page=1`,
   );
 
   return (

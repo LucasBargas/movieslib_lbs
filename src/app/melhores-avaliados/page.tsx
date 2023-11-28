@@ -13,8 +13,8 @@ const ToRated = (): JSX.Element => {
       currentPage={currentPage}
       nextHref={`/melhores-avaliados?pagina=${currentPage + 1}`}
       prevHref={`/melhores-avaliados?pagina=${currentPage - 1}`}
-      api={`${apiUrl}/top_rated?language=pt-BR&page=${currentPage}}`}
-      title="Melhore avaliados"
+      api={`${apiUrl}/movie/top_rated?language=pt-BR&page=${currentPage}}`}
+      title="Melhores avaliados"
     />
   );
 };

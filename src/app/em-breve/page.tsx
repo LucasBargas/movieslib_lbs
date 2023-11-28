@@ -13,7 +13,7 @@ const Upcoming = (): JSX.Element => {
       currentPage={currentPage}
       nextHref={`/em-breve?pagina=${currentPage + 1}`}
       prevHref={`/em-breve?pagina=${currentPage - 1}`}
-      api={`${apiUrl}/upcoming?language=pt-BR&page=${currentPage}}`}
+      api={`${apiUrl}/movie/upcoming?language=pt-BR&page=${currentPage}}`}
       title="Em breve"
     />
   );

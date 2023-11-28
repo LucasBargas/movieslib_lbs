@@ -13,7 +13,7 @@ const MorePopular = (): JSX.Element => {
       currentPage={currentPage}
       nextHref={`/mais-populares?pagina=${currentPage + 1}`}
       prevHref={`/mais-populares?pagina=${currentPage - 1}`}
-      api={`${apiUrl}/popular?language=pt-BR&page=${currentPage}}`}
+      api={`${apiUrl}/movie/popular?language=pt-BR&page=${currentPage}}`}
       title="Mais populares"
     />
   );

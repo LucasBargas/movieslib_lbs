@@ -1,7 +1,7 @@
 import * as S from './styles';
 import { AppContainer } from '@/components/AppContainer';
 import { ISingleMovie } from '@/interfaces/ISingleMovie';
-import { getMovies } from '@/libs/get-movies';
+import { getDatas } from '@/libs/get-datas';
 import Image from 'next/image';
 import { SingleMoviePageDetails } from './SingleMoviePageDetails';
 import { IMovies } from '@/interfaces/IMovies';
@@ -16,17 +16,15 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiImg = process.env.NEXT_PUBLIC_IMG;
 
 export const SingleMoviePage = async (props: Props): Promise<JSX.Element> => {
-  const movie: ISingleMovie = await getMovies(
+  const movie: ISingleMovie = await getDatas(
     apiToken!,
-    `${apiUrl}/${props.id}?language=pt-BR`,
+    `${apiUrl}/movie/${props.id}?language=pt-BR`,
   );
 
-  const similarMovies: IMovies = await getMovies(
+  const similarMovies: IMovies = await getDatas(
     apiToken!,
-    `${apiUrl}/${props.id}/similar?language=pt-BR&page=1`,
+    `${apiUrl}/movie/${props.id}/similar?language=pt-BR&page=1`,
   );
-
-  // console.log(similarMovies.results);
 
   return (
     <S.SingleMoviePageContainer>
@@ -45,11 +43,27 @@ export const SingleMoviePage = async (props: Props): Promise<JSX.Element> => {
 
           <SingleMoviePageDetails movie={movie} />
 
-          <S.SingleMoviePageSimilar>
-            <ShowCase title="Filmes similares" movies={similarMovies} sliced />
-          </S.SingleMoviePageSimilar>
+          {similarMovies.results.length > 0 && (
+            <S.SingleMoviePageSimilar>
+              <ShowCase
+                title="Filmes similares"
+                movies={similarMovies}
+                sliced
+              />
+            </S.SingleMoviePageSimilar>
+          )}
         </S.SingleMoviePageArea>
       </AppContainer>
     </S.SingleMoviePageContainer>
   );
 };
+
+// curl --request GET \
+//      --url 'https://api.themoviedb.org/3/movie/670292/similar?language=pt-BR&page=1' \
+//      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDQ1OTgzMTY4ZThlYmNiYTIyMTcxOWUyMGM3MjZjNSIsInN1YiI6IjYzYTFmNmFhZDhlMjI1MGViOGJmODFhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K3cwN9oE_PRP_WdhG9gke2OiQleULQhCqYWx7zMrv8M' \
+//      --header 'accept: application/json'
+
+// curl --request GET \
+//      --url 'https://api.themoviedb.org/3/movie/204634?language=pt-BR' \
+//      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDQ1OTgzMTY4ZThlYmNiYTIyMTcxOWUyMGM3MjZjNSIsInN1YiI6IjYzYTFmNmFhZDhlMjI1MGViOGJmODFhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K3cwN9oE_PRP_WdhG9gke2OiQleULQhCqYWx7zMrv8M' \
+//      --header 'accept: application/json'

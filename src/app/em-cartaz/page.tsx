@@ -13,7 +13,7 @@ const NowPlaying = (): JSX.Element => {
       currentPage={currentPage}
       nextHref={`/em-cartaz?pagina=${currentPage + 1}`}
       prevHref={`/em-cartaz?pagina=${currentPage - 1}`}
-      api={`${apiUrl}/now_playing?language=pt-BR&page=${currentPage}`}
+      api={`${apiUrl}/movie/now_playing?language=pt-BR&page=${currentPage}`}
       title="Em cartaz"
     />
   );

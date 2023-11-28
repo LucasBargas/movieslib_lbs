@@ -2,7 +2,7 @@ import { ShowCase } from '../../components/ShowCase';
 import * as S from '../../styles/PageStyles';
 import { AppContainer } from '../../components/AppContainer';
 import { IMovies } from '../../interfaces/IMovies';
-import { getMovies } from '../../libs/get-movies';
+import { getDatas } from '../../libs/get-datas';
 import { IGenres } from '@/interfaces/IGenres';
 
 interface Props {
@@ -16,29 +16,16 @@ interface Props {
 }
 
 const apiToken = process.env.NEXT_PUBLIC_API_TOKEN;
-const apiGenreUrl = process.env.NEXT_PUBLIC_API_GENRE;
-
-const getGenresList = async (): Promise<IGenres> => {
-  const options = {
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${apiToken}`,
-    },
-  };
-
-  const res = await fetch(`${apiGenreUrl}/list?language=pt-BR`, options);
-
-  const genres: IGenres = await res.json();
-
-  return genres;
-};
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const DefaultPage = async (props: Props) => {
-  const popularMovies: IMovies = await getMovies(apiToken!, props.api);
+  const popularMovies: IMovies = await getDatas(apiToken!, props.api);
+  const { genres: genresList }: IGenres = await getDatas(
+    apiToken!,
+    `${apiUrl}/genre/movie/list?language=pt-BR`,
+  );
 
-  const genresList = await getGenresList();
-
-  const genresListFindedById = genresList.genres.find(
+  const genresListFindedById = genresList.find(
     (genre) =>
       typeof props.queryValue === 'number' && genre.id === props.queryValue,
   );
@@ -54,7 +41,7 @@ export const DefaultPage = async (props: Props) => {
             currentPage={props.currentPage}
             nextHref={props.nextHref}
             prevHref={props.prevHref}
-            genreTitle={genresListFindedById!.name}
+            genreTitle={genresListFindedById?.name}
           />
         </S.PageArea>
       </AppContainer>

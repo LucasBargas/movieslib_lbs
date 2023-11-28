@@ -1,4 +1,4 @@
-export const getMovies = async <T>(
+export const getDatas = async <T>(
   apiToken: string,
   apiUrl: string,
 ): Promise<T> => {

@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { DefaultPage } from '../../templates/DefaultPage';
 
-const apiSearchUrl = process.env.NEXT_PUBLIC_SEARCH;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Search = (): JSX.Element => {
   const queryValuePage = Number(useSearchParams().get('pagina'));
@@ -15,7 +15,7 @@ const Search = (): JSX.Element => {
       currentPage={currentPage}
       nextHref={`/pesquisa?filme=${queryValue}&pagina=${currentPage + 1}`}
       prevHref={`/pesquisa?filme=${queryValue}&pagina=${currentPage - 1}`}
-      api={`${apiSearchUrl}?query=${queryValue!}&include_adult=false&language=pt-BR&page=${currentPage}`}
+      api={`${apiUrl}/search/movie?query=${queryValue!}&include_adult=false&language=pt-BR&page=${currentPage}`}
     />
   );
 };

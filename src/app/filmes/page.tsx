@@ -6,7 +6,7 @@ interface Props {
   genreTitle: string;
 }
 
-const apiDiscoverUrl = process.env.NEXT_PUBLIC_API_DISCOVER;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Movie = (props: Props) => {
   const queryValuePage = Number(useSearchParams().get('pagina'));
@@ -19,7 +19,7 @@ const Movie = (props: Props) => {
       currentPage={currentPage}
       nextHref={`/filmes?genero_id=${queryValue}&pagina=${currentPage + 1}`}
       prevHref={`/filmes?genero_id=${queryValue}&pagina=${currentPage - 1}`}
-      api={`${apiDiscoverUrl}?include_adult=false&include_video=false&language=pt-BR&page=${currentPage}&sort_by=popularity.desc&with_genres=${queryValue}`}
+      api={`${apiUrl}/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=${currentPage}&sort_by=popularity.desc&with_genres=${queryValue}`}
       genreTitle={props.genreTitle}
     />
   );
