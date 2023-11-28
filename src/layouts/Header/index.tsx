@@ -7,7 +7,7 @@ import { HeaderSearch } from './HeaderSearch';
 import { BsList } from 'react-icons/bs';
 import { IoClose } from 'react-icons/io5';
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   const [mobileNav, setMobileNav] = React.useState(false);
 
   return (

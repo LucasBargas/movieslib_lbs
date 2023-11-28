@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const HeaderNavContainer = styled.div<{ mobileNav: boolean }>`
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  padding-top: .75rem;
+  padding-top: .875rem;
 
   @media (max-width: 1024px) {
     position: absolute;
@@ -26,12 +26,6 @@ export const HeaderNavContainer = styled.div<{ mobileNav: boolean }>`
     @media (max-width: 1024px) {
       display: block;
     }
-
-    /* li:last-of-type {
-      a {
-        pointer-events: fill;
-      }
-    } */
   }
 `;
 
