@@ -2,7 +2,7 @@
 O projeto **MovieLibsLBS** foi desenvolvido para estudo por mim, Lucas Bargas, com base em um layout disponibilizado pelo Matheus Battisti, do hora de codar, no youtube. Este App tem como objetivo apresentar uma lista de filmes separados por categorias, semelhante ao portal do IMDb e TMDB, porém mais simplista. Para a construção deste App foi necessário o consumo da Api gratuita do TMDB.
 
 ### Link para visualizar o projeto
-<https://movieslib-lbs.vercel.app/>
+<https://movieslib-lbs.netlify.app/>
 
 ### Documentação da API do TMDB
 <https://developers.themoviedb.org/3>
