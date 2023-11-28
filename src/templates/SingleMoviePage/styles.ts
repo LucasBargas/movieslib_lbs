@@ -23,6 +23,12 @@ export const SingleMoviePageArea = styled.div`
     @media (max-width: 1200px) {
       grid-column: 1 / 3;
       grid-row: 1 / 2;
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
     }
   }
 `;
