@@ -51,6 +51,7 @@ export const SingleMoviePageDetailsOriginalTitle = styled.li`
 export const SingleMoviePageDetailsOriginalGenres = styled.li`
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 
     a {
