@@ -18,7 +18,7 @@ const Home = async (): Promise<JSX.Element> => {
 
   const topRatedMovies: IMovies = await getDatas(
     apiToken!,
-    `${apiUrl}/movie/popular?language=pt-BR&page=2`,
+    `${apiUrl}/movie/top_rated?language=pt-BR&page=2`,
   );
 
   const upcomingMovies: IMovies = await getDatas(
