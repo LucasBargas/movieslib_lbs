@@ -24,7 +24,7 @@ export const HeaderSearchContainer = styled.form`
 
     input {
       width: 100%;
-      height: 2.25rem;
+      height: 38px;
       border-radius: .25rem;
       padding: 0px 2.325rem 0px 0.875rem;
       border: 2px solid transparent;
@@ -62,7 +62,7 @@ export const HeaderSearchContainer = styled.form`
   button[type="submit"] {
     border-radius: .25rem;
     padding: 0 .5rem;
-    height: 2.25rem;
+    height: 38px;
     background: ${({ theme }) => theme.colors.goldenColor};
     border: 2px solid transparent;
     transition: .4s;

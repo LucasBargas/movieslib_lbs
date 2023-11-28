@@ -10,8 +10,8 @@ interface Props {
 interface INav {
   id: string;
   title: string;
-  path: string;
-  secondPath: string;
+  path?: string;
+  secondPath?: string;
 }
 
 const navList: INav[] = [
@@ -40,17 +40,32 @@ const navList: INav[] = [
     path: '/em-breve?pagina=1',
     secondPath: '/em-breve',
   },
+  {
+    id: '6',
+    title: 'Gêneros',
+    path: '/generos?pagina=1',
+    secondPath: '/generos',
+  },
 ];
 
 export const HeaderNav = (props: Props) => {
   const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+    if (e.currentTarget.id === '/generos?pagina=1') {
+      e.preventDefault();
+      return;
+    }
+
+    props.setMobileNav(false);
+  };
 
   return (
     <S.HeaderNavContainer mobileNav={props.mobileNav}>
       <ul>
         {navList.map((item) => (
           <S.HeadeNavItem key={item.id} active={pathname === item.secondPath}>
-            <Link onClick={() => props.setMobileNav(false)} href={item.path}>
+            <Link onClick={handleClick} href={item.path!} id={item.path}>
               {item.title}
             </Link>
           </S.HeadeNavItem>

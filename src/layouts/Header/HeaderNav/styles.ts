@@ -20,11 +20,18 @@ export const HeaderNavContainer = styled.div<{ mobileNav: boolean }>`
 
   ul {
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
 
     @media (max-width: 1024px) {
       display: block;
     }
+
+    /* li:last-of-type {
+      a {
+        pointer-events: fill;
+      }
+    } */
   }
 `;
 

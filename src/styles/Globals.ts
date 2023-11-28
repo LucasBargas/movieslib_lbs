@@ -23,7 +23,7 @@ const Globals = createGlobalStyle`
     background: ${({ theme }) => theme.colors.primaryColor};
 
     main {
-      padding-top: 8.5rem;
+      padding-top: 9.75rem;
     }
 
     ul, li {

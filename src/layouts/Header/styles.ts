@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  height: 8.5rem;
+  height: 9.75rem;
   background: ${({ theme }) => theme.colors.secondaryColor};
   z-index: 1000;
 `;
