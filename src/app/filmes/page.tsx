@@ -8,7 +8,7 @@ interface Props {
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const Movie = (props: Props) => {
+const Movies = (props: Props): JSX.Element => {
   const queryValuePage = Number(useSearchParams().get('pagina'));
   let currentPage = queryValuePage;
   const queryValue = Number(useSearchParams().get('genero_id'));
@@ -25,4 +25,4 @@ const Movie = (props: Props) => {
   );
 };
 
-export default Movie;
+export default Movies;

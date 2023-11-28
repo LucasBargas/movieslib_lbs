@@ -57,13 +57,3 @@ export const SingleMoviePage = async (props: Props): Promise<JSX.Element> => {
     </S.SingleMoviePageContainer>
   );
 };
-
-// curl --request GET \
-//      --url 'https://api.themoviedb.org/3/movie/670292/similar?language=pt-BR&page=1' \
-//      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDQ1OTgzMTY4ZThlYmNiYTIyMTcxOWUyMGM3MjZjNSIsInN1YiI6IjYzYTFmNmFhZDhlMjI1MGViOGJmODFhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K3cwN9oE_PRP_WdhG9gke2OiQleULQhCqYWx7zMrv8M' \
-//      --header 'accept: application/json'
-
-// curl --request GET \
-//      --url 'https://api.themoviedb.org/3/movie/204634?language=pt-BR' \
-//      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDQ1OTgzMTY4ZThlYmNiYTIyMTcxOWUyMGM3MjZjNSIsInN1YiI6IjYzYTFmNmFhZDhlMjI1MGViOGJmODFhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K3cwN9oE_PRP_WdhG9gke2OiQleULQhCqYWx7zMrv8M' \
-//      --header 'accept: application/json'
