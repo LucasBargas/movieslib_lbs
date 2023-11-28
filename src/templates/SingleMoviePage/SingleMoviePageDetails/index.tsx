@@ -49,7 +49,7 @@ export const SingleMoviePageDetails = async ({
             {movie.genres.map((genre) => (
               <li key={genre.id}>
                 <Link
-                  href={`/filme?genero_id=${genre.id}&pagina=1
+                  href={`/filmes?genero_id=${genre.id}&pagina=1
               `}
                 >
                   {genre.name}

@@ -12,10 +12,11 @@ interface Props {
   title?: string;
   redirect?: string;
   sliced?: boolean;
-  queryValue?: string;
+  queryValue?: string | number;
   currentPage?: number;
   nextHref?: string;
   prevHref?: string;
+  genreTitle?: string;
 }
 
 export const ShowCase = (props: Props): JSX.Element => {
@@ -39,9 +40,19 @@ export const ShowCase = (props: Props): JSX.Element => {
         </S.ShowCaseTitle>
       )}
 
-      {!!props.queryValue && moviesResults.length > 0 && (
+      {!props.genreTitle && !!props.queryValue && moviesResults.length > 0 && (
         <S.ShowCaseTitle>
-          {<h1>{handleTitleShowCase(props.queryValue)}</h1>}{' '}
+          {<h1>{handleTitleShowCase(props.queryValue as string)}</h1>}{' '}
+          <small>
+            {props.movies.total_results}{' '}
+            {moviesResults.length === 1 ? 'resultado' : 'resultados'}
+          </small>
+        </S.ShowCaseTitle>
+      )}
+
+      {!!props.genreTitle && !!props.queryValue && moviesResults.length > 0 && (
+        <S.ShowCaseTitle>
+          {<h1>{handleTitleShowCase(props.genreTitle)}</h1>}{' '}
           <small>
             {props.movies.total_results}{' '}
             {moviesResults.length === 1 ? 'resultado' : 'resultados'}
@@ -53,7 +64,7 @@ export const ShowCase = (props: Props): JSX.Element => {
         <S.ShowCaseTitle>
           <h1>
             Nenhum resultado encontrado para:{' '}
-            {handleTitleShowCase(props.queryValue)}
+            {handleTitleShowCase(props.queryValue as string)}
           </h1>
         </S.ShowCaseTitle>
       )}
