@@ -5,6 +5,7 @@ import Theme from '../styles/Theme';
 import Globals from '../styles/Globals';
 import { Header } from '../layouts/Header';
 import { AppWrapper } from '@/layouts/AppWrapper';
+import { Footer } from '@/layouts/Footer';
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
               <Header />
               <main>{children}</main>
               <Globals />
+              <Footer />
             </AppWrapper>
           </ThemeProvider>
         </StyledComponentsRegistry>
