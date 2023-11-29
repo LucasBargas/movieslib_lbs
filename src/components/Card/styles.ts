@@ -61,13 +61,15 @@ export const CardHeader = styled.div`
 
 export const CardTitle = styled.div`
   a {
-    padding: 1rem 0;
+    padding: 1rem 0 !important;
     text-align: center;
+    color: ${({ theme }) => theme.colors.lightColor} !important;
     font-weight: 700;
     transition: color .4s;
 
+
     &:hover {
-      color: ${({ theme }) => theme.colors.goldenColor};
+      color: ${({ theme }) => theme.colors.goldenColor} !important;
     }
   }
 `;
